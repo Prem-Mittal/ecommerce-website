@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import morgan  from 'morgan';
 import connectDB from './config/db.js';
 import authRoutes from'./routes/authroute.js';
+
 dotenv.config();    //The line dotenv.config(); is typically used in programming to load environment variables from a file into the application's runtime environment.
 
 connectDB();
