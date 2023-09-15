@@ -6,25 +6,25 @@ export const registerController = async (req, res) => {
   try {
     const { name, email, password, phone, address } = req.body; // is using object destructuring to extract specific properties from the req.body object.
     if (!name) {
-      return res.send({ error: "Name is Required" });
+      return res.send({ message: "Name is Required" });
     }
     if (!email) {
-      return res.send({ error: "Email is Required" });
+      return res.send({ message: "Email is Required" });
     }
     if (!password) {
-      return res.send({ error: "Password is Required" });
+      return res.send({ message: "Password is Required" });
     }
     if (!phone) {
-      return res.send({ error: "Phone No is Required" });
+      return res.send({ message: "Phone No is Required" });
     }
     if (!address) {
-      return res.send({ error: "Address is Required" });
+      return res.send({ message: "Address is Required" });
     }
     const existinguser = await userModel.findOne({ email }); //The object { email } is an example of shorthand property notation in JavaScript, introduced in ES6. When the property key and variable name are the same, you can omit the explicit : value part, and JavaScript will interpret it as { email: email }.
 
     if (existinguser) {
       return res.status(200).send({
-        success: true,
+        success: false,
         message: "Already Register please login",
       });
     }
