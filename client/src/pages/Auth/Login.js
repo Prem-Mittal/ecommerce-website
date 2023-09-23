@@ -11,7 +11,7 @@ const Login = () => {
   const [auth, setAuth] = useAuth();
 
   const navigate = useNavigate();
-  //const location = useLocation();
+  const location = useLocation();
 
   // form function
   const handleSubmit = async (e) => {

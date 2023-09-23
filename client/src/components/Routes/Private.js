@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useAuth } from "../../context/auth";
 import { Outlet } from "react-router-dom";
 import axios from "axios";
@@ -10,18 +10,11 @@ export default function PrivateRoute() {
 
   useEffect(() => {
     const authCheck = async () => {
-      try {
-        const res = await axios.get("/api/v1/auth/user-auth");
-        if (res.data.ok) {
-          setOk(true);
-        } else {
-          setOk(false);
-        }
-        console.log("error in axios");
-      } catch (error) {
-        alert(error.message);
-        console.log("error in axios");
-        // Handle the error here, e.g., redirect to a login page or show an error message.
+      const res = await axios.get(`${process.env.REACT_APP_API}/api/v1/auth/user-auth`);
+      if (res.data.ok) {
+        setOk(true);
+      } else {
+        setOk(false);
       }
     };
     if (auth?.token) authCheck();
