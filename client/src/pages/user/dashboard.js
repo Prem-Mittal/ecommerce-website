@@ -5,7 +5,7 @@ import Layout from "../../components/Layout/Layout";
 const Dashboard = () => {
 //   const [auth] = useAuth();
 return (  
-    <Layout>
+    <Layout title={'Dashboard-Ecommerce app'}>
         <h1>Dashboard Page</h1>
     </Layout>
  );
