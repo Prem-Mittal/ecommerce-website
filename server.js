@@ -5,7 +5,7 @@ import morgan  from 'morgan';
 import connectDB from './config/db.js';
 import authRoutes from'./routes/authroute.js';
 import categoryRoutes from "./routes/categoryRoutes.js";
-//import productRoutes from "./routes/productRoutes.js";
+import productRoutes from "./routes/productRoutes.js";
 import cors from 'cors';
 dotenv.config();    //The line dotenv.config(); is typically used in programming to load environment variables from a file into the application's runtime environment.
 
@@ -20,7 +20,7 @@ app.use(morgan('dev')); //When a request is received, morgan logs information ab
 
 app.use("/api/v1/auth",authRoutes);
 app.use("/api/v1/category",categoryRoutes);
-//app.use("/api/v1/product",productRoutes);
+app.use("/api/v1/product",productRoutes);
 //It means that any incoming requests that start with "/api/v1/auth" will be handled by the authRoutes router. The authRoutes router contains specific route handlers for authentication-related endpoints.
 //Parsing allows the application to extract and convert that text into a structured format that can be easily understood and processed by the application's code.
 app.get('/',(req,res)=>{
