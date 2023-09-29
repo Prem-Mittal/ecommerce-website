@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Layout from "./../../components/Layout/Layout";
+import Layout from "../../components/Layout/Layout";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
@@ -18,8 +18,8 @@ const ForgotPasssword = () => {
     try {
       const res = await axios.post(`${process.env.REACT_APP_API}/api/v1/auth/forgot-password`, {
         email,
-        newPassword,
         answer,
+        newPassword,
       });
       if (res && res.data.success) {
         toast.success(res.data && res.data.message);
