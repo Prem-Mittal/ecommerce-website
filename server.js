@@ -29,7 +29,10 @@ app.use(express.static(path.join(__dirname,'./client/build')));
 //It means that any incoming requests that start with "/api/v1/auth" will be handled by the authRoutes router. The authRoutes router contains specific route handlers for authentication-related endpoints.
 //Parsing allows the application to extract and convert that text into a structured format that can be easily understood and processed by the application's code.
 app.use('*',function(req,res){
-    res.sendFile(path.join(__dirname,"./client/build/index.html"));
+    res.sendFile(path.join(__dirname,"./client/build/index.html")),
+    function (err){
+        res.status(500).send(err)
+        }
 });
 // app.get('/',(req,res)=>{
 //     res.send("<h1>Hello</h1>");
